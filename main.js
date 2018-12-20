@@ -1,8 +1,15 @@
 new Vue({
     el: '#app',
     data: {
-      submissions: Seed.submissions 
+        submissions: Seed.submissions
+    },
+    computed: {
+        sortedSubmissions() {
+            return this.submissions.sort((a, b) => {
+                return b.votes - a.votes
+            });
+        }
     }
-  });
+});
 
 //Tutorial From: Hassan Djirdeh. “Fullstack Vue.js.”
